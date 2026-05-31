@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+html,body,#app { height: 100%; }
+body {
+  font-family: 'Geist', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-color: #060610;
+  color: #e3e2e2;
+  overflow-x: hidden;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed; inset: 0; z-index: 50; opacity: 0.04; pointer-events: none;
+  background-image: url('https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=1600&q=30');
+  background-size: cover;
+}
+
+/* Custom cursor */
+.custom-cursor { position: fixed; width: 44px; height: 44px; background: rgba(0,255,65,0.28); border-radius: 9999px; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: screen; filter: blur(8px); }
+.custom-cursor-dot { position: fixed; width: 6px; height: 6px; background: #00ff41; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+
+.cinematic-bg { background: radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%), rgba(0,255,65,0.05) 0%, transparent 50%); }
+
+/* 3D canvas container */
+.hero-canvas { position: absolute; inset: 0; z-index: 0; }
+
+/* Reveal animation */
+.reveal-up { opacity: 0; transform: translateY(30px) perspective(1000px) rotateX(6deg); transition: all 900ms cubic-bezier(.23,1,.32,1); }
+.reveal-up.active { opacity: 1; transform: none; }
+
+/* small helpers */
+.glass-card { backdrop-filter: blur(8px); background: rgba(25,26,26,0.35); border: 1px solid rgba(255,255,255,0.04); }
