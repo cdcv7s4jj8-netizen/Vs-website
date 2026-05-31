@@ -1,42 +1,37 @@
 import './styles.css'
 import { gsap } from 'gsap'
-import './styles.css'
 import { initScene } from './three/scene.js'
-import Header from './components/header.js'
-import Hero from './components/hero.js'
-import Footer from './components/footer.js'
 import initRouter from './router.js'
 
-// simple component helpers
 function Header() {
   return `
-    <div class="noise-overlay"></div>
-    <div id="cursor" class="custom-cursor"></div>
-    <div id="cursor-dot" class="custom-cursor-dot"></div>
-    <header class="fixed top-0 left-0 right-0 z-30 glass-card py-5 px-6 flex justify-between items-center">
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div id="cursor" class="custom-cursor" aria-hidden="true"></div>
+    <div id="cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
+    <header class="fixed top-0 left-0 right-0 z-30 glass-card py-5 px-6 flex justify-between items-center" role="banner">
       <div class="font-bold text-xl text-primary-container">CLIPEMPIRE</div>
-      <nav class="hidden md:flex gap-6 text-sm text-on-background/80">
+      <nav class="hidden md:flex gap-6 text-sm text-on-background/80" role="navigation" aria-label="Main Navigation">
         <a href="#methodology">Methodology</a>
         <a href="#results">Results</a>
         <a href="#path">Path</a>
       </nav>
       <div class="ml-auto">
-        <button class="bg-primary-container text-on-primary-container px-4 py-2 rounded font-bold">ASCEND</button>
+        <button class="bg-primary-container text-on-primary-container px-4 py-2 rounded font-bold" aria-label="Ascend">ASCEND</button>
       </div>
     </header>`
 }
 
 function Hero() {
   return `
-    <main class="relative min-h-screen flex items-center justify-center cinematic-bg">
-      <canvas id="hero-canvas" class="hero-canvas"></canvas>
+    <main id="main" class="relative min-h-screen flex items-center justify-center cinematic-bg" role="main">
+      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
       <div class="relative z-10 text-center px-6">
         <div class="reveal-up active">
           <h1 class="text-4xl md:text-7xl font-black uppercase tracking-tight">ESCAPE THE <span class="text-primary-container">MATRIX</span></h1>
           <p class="mt-6 max-w-2xl mx-auto opacity-80">The algorithm is a weapon of mass distraction. Turn it into a monetization engine.</p>
           <div class="mt-8 flex gap-4 justify-center">
-            <button id="joinBtn" class="bg-primary-container text-on-primary-container px-6 py-3 font-bold rounded bloom-primary">JOIN THE EMPIRE</button>
-            <button class="border border-white/20 glass-card text-white px-6 py-3 rounded">THE METHODOLOGY</button>
+            <button id="joinBtn" class="bg-primary-container text-on-primary-container px-6 py-3 font-bold rounded bloom-primary" aria-label="Join the Empire">JOIN THE EMPIRE</button>
+            <button class="border border-white/20 glass-card text-white px-6 py-3 rounded" aria-label="View methodology">THE METHODOLOGY</button>
           </div>
         </div>
       </div>
@@ -55,7 +50,7 @@ function Methodology() {
 
 function Footer() {
   return `
-    <footer class="py-10 px-6 glass-card">
+    <footer class="py-10 px-6 glass-card" role="contentinfo">
       <div class="max-w-6xl mx-auto text-center text-sm opacity-80">© 2026 CLIPEMPIRE — DATA ENCRYPTED</div>
     </footer>`
 }
